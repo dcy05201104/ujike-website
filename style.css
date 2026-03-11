@@ -292,4 +292,11 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     .br-sp { display: block; } /* スマホの画面幅になったら、改行を有効にする */
+
+    /* 各セクションのタイトルの文字サイズを調整 */
+    .section h2 {
+        font-size: 1.5rem;    /* 2remくらいだったものを1.5まで小さくします */
+        white-space: nowrap;  /* 絶対に改行させないという強い意志 */
+        letter-spacing: -0.5px; /* 文字の間隔をほんの少しだけ詰めて収まりを良くします */
+    }
 }
