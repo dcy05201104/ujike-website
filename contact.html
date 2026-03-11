@@ -18,23 +18,40 @@
     <main class="contact-page fade-in">
         <div class="contact-header">
             <h1>お問い合わせ</h1>
-            <p>ご質問、お見積りのご依頼などお気軽にお問い合わせください。</p>
+            <p>ご質問、お見積りのご依頼など<br class="br-sp">お気軽にお問い合わせください。</p>
         </div>
 
         <div class="form-container">
             <form action="https://formspree.io/f/xpqywkje" method="POST">
+                
                 <div class="form-group">
                     <label>お名前 <span class="required">必須</span></label>
                     <input type="text" name="name" class="form-input" placeholder="サンプル 花子" required>
                 </div>
+
                 <div class="form-group">
                     <label>お電話番号</label>
                     <input type="tel" name="phone" class="form-input" placeholder="080-xxxx-xxxx">
                 </div>
+
                 <div class="form-group">
                     <label>メールアドレス <span class="required">必須</span></label>
                     <input type="email" name="email" class="form-input" placeholder="xxxx@example.com" required>
                 </div>
+
+                <div class="form-group">
+                    <label>年代</label>
+                    <select name="age" class="form-select">
+                        <option value="選択してください">選択してください</option>
+                        <option value="10代">10代</option>
+                        <option value="20代">20代</option>
+                        <option value="30代">30代</option>
+                        <option value="40代">40代</option>
+                        <option value="50代">50代</option>
+                        <option value="60代以上">60代以上</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label>性別</label>
                     <div class="check-radio-group">
@@ -43,13 +60,12 @@
                         <label><input type="radio" name="gender" value="無回答"> 無回答</label>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label>お問い合わせ内容 <span class="required">必須</span></label>
                     <textarea name="message" class="form-textarea" placeholder="ご自由にご記入ください" required></textarea>
                 </div>
-                <div class="recaptcha-box">
-                    <label><input type="checkbox" required> 私はロボットではありません</label>
-                </div>
+
                 <div class="submit-area">
                     <button type="submit" class="submit-btn">同意して送信</button>
                 </div>
@@ -57,8 +73,10 @@
         </div>
     </main>
 
-    <footer><p class="copyright">© 2026 氏家社会保険労務士事務所 All Rights Reserved.</p></footer>
+    <footer>
+        <p class="copyright">© 2026 氏家社会保険労務士事務所 All Rights Reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-
 </html>
