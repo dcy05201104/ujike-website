@@ -378,4 +378,17 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
         white-space: nowrap;  /* 絶対に改行させないという強い意志 */
         letter-spacing: -0.5px; /* 文字の間隔をほんの少しだけ詰めて収まりを良くします */
     }
+
+    /* ロゴ全体の調整 */
+    .logo {
+        font-size: 1.1rem !important; /* 文字を少し小さくして収まりを良くします */
+        white-space: nowrap;         /* 絶対に改行させないという魔法の指示 */
+        gap: 8px;                    /* ロゴマークとの隙間も少しだけ詰めます */
+        letter-spacing: -0.5px;      /* 文字の間隔をわずかに詰めるとさらに綺麗です */
+    }
+
+    /* ロゴマークのサイズも文字に合わせて微調整 */
+    .logo-mark {
+        height: 1.1em; 
+    }
 }
