@@ -1,4 +1,5 @@
 /* --- ベース --- */
+
 body {
     font-family: 'Noto Serif JP', serif;
     margin: 0;
@@ -8,6 +9,7 @@ body {
 }
 
 /* ヘッダー */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -21,20 +23,20 @@ header {
 }
 
 /* --- ロゴ周りの修正：決定版 --- */
-
 /* 1. 文字とロゴ全体の設定 */
-.logo { 
-    font-size: 1.6rem; 
-    font-weight: bold; 
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
     text-decoration: none !important; /* 下線を絶対消す */
-    
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
     transition: 0.3s;
 }
 
 /* 2. 色を「絶対に」シャンパンゴールドに固定する設定 */
+
 .logo,
 .logo:link,
 .logo:visited,
@@ -44,6 +46,7 @@ header {
 }
 
 /* 3. ロゴマークのサイズ調整 */
+
 .logo-mark {
     height: 1.4em;   /* 1.2だと大きく、1.0だと小さく感じる場合は1.1がベストです */
     width: auto;
@@ -51,6 +54,7 @@ header {
 }
 
 /* マウスを乗せたときだけ、少しだけ薄くする（反応を出す） */
+
 .logo:hover {
     opacity: 0.7;
 }
@@ -66,6 +70,7 @@ header nav ul {
 header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 
 /* --- ヒーローエリア全体 --- */
+
 .hero {
     position: relative;
     height: 80vh;        /* パソコンでの高さ（お好みで調整してください） */
@@ -76,6 +81,7 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* --- 背景スライド（1枚ずつ） --- */
+
 .hero-slide {
     position: absolute;
     top: 0;
@@ -90,11 +96,13 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* 表示されている画像（active）の設定 */
+
 .hero-slide.active {
     opacity: 1;
 }
 
 /* 画像を少し暗くして文字を読みやすくする（オーバーレイ） */
+
 .hero::after {
     content: '';
     position: absolute;
@@ -107,6 +115,7 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* --- 文字コンテンツの入れ物 --- */
+
 .hero-content {
     position: relative;
     z-index: 10;         /* 画像や影よりも手前に出す */
@@ -119,20 +128,23 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* 文字のサイズ調整 */
-.hero h1 { 
-    font-size: 3rem; 
-    line-height: 1.3; 
-    margin-bottom: 20px; 
+
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* 文字に影をつけてさらに読みやすく */
 }
 
-.hero p { 
-    font-size: 1.3rem; 
+.hero p {
+    font-size: 1.3rem;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 /* カード */
+
 .cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+
 .card {
     display: block;
     text-decoration: none;
@@ -141,59 +153,86 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
     border-radius: 15px;
     width: 280px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: inherit;
 }
+
 .card:hover, .card:active {
     transform: translateY(-10px) !important;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12);
 }
 
 /* --- お問い合わせフォーム固定デザイン --- */
+
 .br-sp { display: none; } /* PCでは改行タグを「存在しないもの」として扱う */
+
 .contact-page { padding: 80px 5%; background-color: #fff; }
+
 .contact-header { text-align: center; margin-bottom: 60px; }
+
 .contact-header h1 { display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #333; }
+
 .contact-header h1::before, .contact-header h1::after { content: ""; width: 80px; height: 1px; background: #333; margin: 0 20px; }
-.form-container { max-width: 700px; margin: 0 auto; } 
+
+.form-container { max-width: 700px; margin: 0 auto; }
+
 .form-group { margin-bottom: 40px; text-align: left; }
+
 .form-group label { display: block; font-weight: bold; font-size: 0.95rem; margin-bottom: 12px; }
+
 .required { background: #e60012; color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; margin-left: 10px; vertical-align: middle; }
 
+
+
 /* 入力欄（下線のみ） */
-.form-input { 
-    width: 100%; border: none; border-bottom: 1px solid #ccc; 
-    padding: 10px 0; font-size: 1rem; outline: none; transition: 0.3s; 
+
+.form-input {
+    width: 100%; border: none; border-bottom: 1px solid #ccc;
+    padding: 10px 0; font-size: 1rem; outline: none; transition: 0.3s;
     background: transparent; display: block; box-sizing: border-box;
 }
+
 .form-input:focus { border-bottom: 2px solid #bfa67a; }
 
 /* セレクトボックスのスタイル */
-.form-select { 
-    padding: 10px; border: 1px solid #ccc; border-radius: 4px; 
+
+.form-select {
+    padding: 10px; border: 1px solid #ccc; border-radius: 4px;
     width: 100%; max-width: 200px; font-size: 0.95rem; outline: none;
 }
+
 .form-select:focus { border: 1px solid #bfa67a; }
 
 .form-textarea { width: 100%; height: 150px; border: 1px solid #ccc; padding: 15px; border-radius: 5px; outline: none; box-sizing: border-box; display: block; }
+
 .check-radio-group { display: flex; gap: 20px; margin-top: 5px; }
 
 .submit-area { text-align: center; width: 100%; }
+
 /* 送信ボタン（ターコイズ） */
-.submit-btn { 
-    background: #26c6da; color: #fff; border: none; padding: 15px 80px; 
-    font-size: 1.1rem; border-radius: 4px; cursor: pointer; font-weight: bold; 
-    transition: 0.3s; display: inline-block; 
+
+.submit-btn {
+    background: #26c6da; color: #fff; border: none; padding: 15px 80px;
+    font-size: 1.1rem; border-radius: 4px; cursor: pointer; font-weight: bold;
+    transition: 0.3s; display: inline-block;
 }
+
 .submit-btn:hover { background: #00acc1; }
 
 /* 料金・詳細ページ共通 */
+
 .price-page, .service-detail { padding: 80px 5%; max-width: 900px; margin: 0 auto; }
+
 .price-table { width: 100%; border-collapse: collapse; text-align: left; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
 .price-table th, .price-table td { padding: 20px; border-bottom: 1px solid #f0f0f0; }
+
 .price-table th { background-color: #fbf8f2; color: #bfa67a; }
+
 .price-cta { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 50px; width: 100%; flex-wrap: wrap; }
+
 /* ボタンの基本デザイン（立体感・グラデーション） */
+
 .btn {
     display: inline-block;
     background: linear-gradient(135deg, #d4bd96 0%, #bfa67a 100%); /* 金色系のグラデーション */
@@ -209,6 +248,7 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* マウスを乗せた時（ホバー）の動き */
+
 .btn:hover {
     transform: translateY(-3px); /* 3ピクセル上に浮かせる */
     box-shadow: 0 8px 25px rgba(191, 166, 122, 0.5); /* 影を強くして立体感を強調 */
@@ -216,22 +256,27 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* クリックした瞬間の動き */
+
 .btn:active {
     transform: translateY(1px);  /* 1ピクセル沈ませて「押した感」を出す */
     box-shadow: 0 2px 10px rgba(191, 166, 122, 0.3);
 }
 
 /* 2番目のボタン（サブ）の色 */
+
 .btn.secondary {
     background: #555;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* セクション共通 */
+
 .section { padding: 60px 5%; text-align: center; }
+
 .section h2 { font-size: 2rem; color: #bfa67a; margin-bottom: 40px; }
 
 /* マップを画面幅に合わせる */
+
 .map-container iframe {
     width: 100%;       /* 画面の横幅いっぱいにする */
     max-width: 1000px;  /* でもパソコンでは1000px以上にならないようにする */
@@ -240,17 +285,22 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 }
 
 /* フッター */
+
 footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
+
 .copyright { font-size: 0.8rem; color: #888; margin: 0; display: block; }
 
 /* アニメーション */
+
 .fade-in { opacity: 0; transition: 0.8s ease-out; }
+
 .fade-in.show { opacity: 1; transform: translateY(0); }
+
 .fade-in:not(.show) { transform: translateY(30px); }
 
 /* --- キャッチコピーのアニメーション設定 --- */
-
 /* 1. 動きの正体（アニメーションの定義） */
+
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -263,16 +313,35 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
 }
 
 /* 2. アニメーションを実行するクラス */
+
 .fade-up {
     animation: fadeUp 1.5s ease-out forwards; /* 1.5秒かけて実行 */
 }
 
+/* パソコンで見るときは改行を隠す設定（これは @media の外に書いてください） */
+
+.mobile-br {
+    display: none;
+}
+
+/* --- 私たちの想い：ラインを消して元に戻す --- */
+
+.concept-text {
+    text-align: center;
+    margin: 40px auto;      /* 上下の余白を少し調整 */
+    color: #4a4a4a;
+    width: auto;            /* fit-contentをやめて元に戻す */
+    line-height: 2.0;       /* PCでもゆったりした行間に */
+}
+
 /* スマホ対応 */
+
 @media (max-width: 768px) {
+
     /* ヘッダー全体の余白を少し詰める */
-    header { 
-        flex-direction: column; 
-        padding: 15px 10px; 
+    header {
+        flex-direction: column;
+        padding: 15px 10px;
     }
 
     /* スマホでの各セクションの余白をさらに狭くする */
@@ -286,25 +355,29 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     /* メニューの間隔と文字サイズを調整して1行に収める */
-    header nav ul { 
-        margin-top: 15px; 
+    header nav ul {
+        margin-top: 15px;
         gap: 10px;      /* 項目間の隙間を狭くしました */
         justify-content: center;
     }
 
-    header nav a { 
+    header nav a {
         font-size: 0.8rem;    /* 文字を少しだけ小さくしました */
         white-space: nowrap;  /* 文字が途中で折れ曲がらないようにする魔法です */
     }
 
     /* ヒーローエリアの調整 */
+
     @media (max-width: 768px) {
     .hero { height: 60vh; }
+
     .hero h1 { font-size: 1.5rem; } /* 以前の調整に合わせて小さく */
+
     .hero p { font-size: 1rem; }
     }
 
     /* カードのサイズを統一して文字を小さくする設定 */
+
     .cards {
         display: flex;
         flex-wrap: wrap;
@@ -313,22 +386,26 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     .card {
-        width: calc(50% - 10px); 
+        width: calc(50% - 10px);
         padding: 10px 10px;      /* 20pxから10pxに半分にしました */
         min-height: 170px;       /* 220pxから170pxにギュッと縮めました */
         display: flex;
         flex-direction: column;
-        justify-content: center; 
+        justify-content: center;
         box-sizing: border-box;
     }
 
     /* カード内のタイトルの文字サイズ */
+
     .card h3 {
         font-size: 0.95rem;      /* 1.6remから大幅に小さくして1行に収まりやすくします */
         margin-bottom: 8px;
     }
 
+
+
     /* カード内の説明文の文字サイズ */
+
     .card p {
         font-size: 0.75rem;      /* 文字を小さくして情報量を確保 */
         line-height: 1.5;
@@ -336,36 +413,40 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     /* 3枚目のサイズも1・2枚目と全く同じにする */
+
     .card:last-child {
-        width: calc(50% - 10px); 
+        width: calc(50% - 10px);
         margin-top: 0;
     }
 
     /* お問い合わせページのヘッダー（タイトル周り）の調整 */
-    .contact-page { 
+
+    .contact-page {
         padding: 40px 5% !important; /* 上下の余白を詰める */
     }
 
-    .contact-header h1 { 
+    .contact-header h1 {
         font-size: 1.4rem !important; /* 文字を少し小さく */
         white-space: nowrap;          /* 絶対に改行させない魔法 */
     }
 
-    .contact-header h1::before, .contact-header h1::after { 
+    .contact-header h1::before, .contact-header h1::after {
         width: 20px !important;       /* 横線をかなり短くしてタイトルを主役に */
-        margin: 0 10px !important; 
+        margin: 0 10px !important;
     }
 
-    .contact-header p { 
+    .contact-header p {
         font-size: 0.85rem;           /* 説明文も少し小さくしてバランスを取る */
         line-height: 1.6;
         padding: 0 10px;
     }
 
     /* お問い合わせページのロゴ周りをコンパクトに */
+
     .contact-page header {
         padding: 10px !important;
     }
+
     .contact-page .logo {
         font-size: 1.2rem !important;
     }
@@ -373,6 +454,7 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     .br-sp { display: block; } /* スマホの画面幅になったら、改行を有効にする */
 
     /* 各セクションのタイトルの文字サイズを調整 */
+
     .section h2 {
         font-size: 1.5rem;    /* 2remくらいだったものを1.5まで小さくします */
         white-space: nowrap;  /* 絶対に改行させないという強い意志 */
@@ -380,6 +462,7 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     /* ロゴ全体の調整 */
+
     .logo {
         font-size: 1.1rem !important; /* 文字を少し小さくして収まりを良くします */
         white-space: nowrap;         /* 絶対に改行させないという魔法の指示 */
@@ -388,7 +471,56 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     }
 
     /* ロゴマークのサイズも文字に合わせて微調整 */
+
     .logo-mark {
-        height: 1.1em; 
+        height: 1.1em;
+    }
+
+    /* --- 私たちの想い セクションの調整 --- */
+    /* 1. パソコンではスマホ用の改行を無効にする */
+
+    .mobile-br {
+        display: none;
+    }
+
+    /* 2. スマホ（画面幅768px以下）の時の設定 */
+
+    @media (max-width: 768px) {
+        /* 改行を有効にする */
+        .mobile-br {
+            display: block;
+        }
+
+        /* 文章の見た目を整える（スマホ版） */
+
+        .concept-text {
+            white-space: nowrap; /* スマホで「す。」が落ちない魔法は残しておきます */
+            font-size: 3.8vw;    /* スマホでの完璧なサイズ設定 */
+            line-height: 2.2;
+        }
+
+        .service-title {
+            white-space: nowrap;    /* これで「作成・見直し」が勝手に改行されるのを防ぎます */
+            line-height: 1.5;       /* 2行になった時の行間をきれいに整えます */
+            font-size: 1.15rem;     /* 文字サイズはお好みで微調整してください */
+            margin-bottom: 10px;
+            display: block;         /* 念のためブロック要素として扱います */
+        }
+
+        /* もし上に書いていなければこれも必要です */
+
+        .mobile-br {
+            display: block;         /* スマホの時だけ改行を有効にする */
+        }
+
+        .access-address {
+            text-align: center;     /* 中央寄せ */
+            line-height: 1.8;       /* 行間を読みやすく調整 */
+            white-space: nowrap;    /* 各行が勝手に途中で割れるのを防ぐ魔法 */
+            /* 画面の横幅に合わせて、文字サイズを自動で微調整します */
+            font-size: 3.4vw;       /* 3.4vw は「画面幅の3.4%」という意味です */
+            margin-top: 15px;
+            padding: 0 10px;
+        }
     }
 }
