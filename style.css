@@ -384,7 +384,13 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     /* 3. ヒーロー・セクション全体 */
     .hero { height: 60vh; }
     .hero h1 { font-size: 1.5rem; }
-    .hero p { font-size: 1rem; }
+    .hero p {
+        font-size: 3.5vw !important;    /* 画面幅（vw）に合わせてサイズを自動調整 */
+        white-space: nowrap !important; /* 絶対に改行させないという強い意志 */
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+    }
     .section { padding: 40px 5%; }
     .section h2 {
         font-size: 1.5rem;
@@ -468,4 +474,7 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     .map-container iframe { height: 200px; }
     .mobile-br { display: block !important; }
     .br-sp { display: block !important; }
+    body {
+        overscroll-behavior-y: auto !important; /* ブラウザ標準の「引っ張って更新」を許可する */
+    }
 }
