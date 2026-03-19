@@ -143,20 +143,35 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
 
 /* カード */
 
-.cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-
-.card {
-    display: block;
-    text-decoration: none;
-    background-color: #fff;
-    padding: 50px 30px;
-    border-radius: 15px;
-    width: 280px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: inherit;
+/* --- サービスカード全体の箱（PC版） --- */
+.cards { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px;          /* 4枚並べるために隙間を30pxから20pxに少し詰めました */
+    flex-wrap: nowrap;  /* PCでは絶対に横一列を死守します */
+    max-width: 1200px;  /* 全体の幅を少し広げて4枚収まりやすくしました */
+    margin: 0 auto;
 }
 
+/* --- 個別のカード（PC版） --- */
+.card {
+    display: flex;      /* 中の文字を中央に寄せるために flex に変更 */
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #fff;
+    padding: 50px 20px; /* 左右の余白を少し調整して4枚並びに対応 */
+    border-radius: 15px;
+    /* ↓ PCでは「4枚並び」になるように幅を自動計算させます */
+    width: calc(25% - 15px); 
+    min-width: 240px;   /* 狭くなりすぎないよう制限 */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    color: inherit;
+    box-sizing: border-box;
+}
+
+/* --- マウスを乗せた時の動き（なっちゃんのコードを継承） --- */
 .card:hover, .card:active {
     transform: translateY(-10px) !important;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12);
@@ -255,7 +270,7 @@ header nav a { text-decoration: none; color: #666; font-size: 0.95rem; }
     filter: brightness(1.1);    /* 少しだけ明るくして「光った」感じを出す */
 }
 
-/* クリックした瞬間の動き */
+/* クリックした瞬間の動き */    
 
 .btn:active {
     transform: translateY(1px);  /* 1ピクセル沈ませて「押した感」を出す */
@@ -334,193 +349,123 @@ footer { padding: 40px 5%; background-color: #f7f3ec; text-align: center; }
     line-height: 2.0;       /* PCでもゆったりした行間に */
 }
 
-/* スマホ対応 */
-
+/* =========================================
+   スマホ専用：なっちゃんのこだわり＆2×2統合版
+   ========================================= */
 @media (max-width: 768px) {
 
-    /* ヘッダー全体の余白を少し詰める */
+    /* 1. ヘッダー・ナビの調整（1行に収める魔法） */
     header {
         flex-direction: column;
         padding: 15px 10px;
     }
-
-    /* スマホでの各セクションの余白をさらに狭くする */
-    .section {
-        padding: 40px 5%; /* スマホでは上下40pxくらいがちょうど良いです */
-    }
-
-    /* マップの縦幅を縮めて横長にする */
-    .map-container iframe {
-        height: 200px; /* 450pxから250pxに縮めて、スッキリした長方形にします */
-    }
-
-    /* メニューの間隔と文字サイズを調整して1行に収める */
     header nav ul {
         margin-top: 15px;
-        gap: 10px;      /* 項目間の隙間を狭くしました */
+        gap: 10px;
         justify-content: center;
     }
-
     header nav a {
-        font-size: 0.8rem;    /* 文字を少しだけ小さくしました */
-        white-space: nowrap;  /* 文字が途中で折れ曲がらないようにする魔法です */
+        font-size: 0.8rem;
+        white-space: nowrap; /* 文字を折らせない */
     }
 
-    /* ヒーローエリアの調整 */
-
-    @media (max-width: 768px) {
-    .hero { height: 60vh; }
-
-    .hero h1 { font-size: 1.5rem; } /* 以前の調整に合わせて小さく */
-
-    .hero p { font-size: 1rem; }
-    }
-
-    /* カードのサイズを統一して文字を小さくする設定 */
-
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .card {
-        width: calc(50% - 10px);
-        padding: 10px 10px;      /* 20pxから10pxに半分にしました */
-        min-height: 170px;       /* 220pxから170pxにギュッと縮めました */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-
-    /* カード内のタイトルの文字サイズ */
-
-    .card h3 {
-        font-size: 0.95rem;      /* 1.6remから大幅に小さくして1行に収まりやすくします */
-        margin-bottom: 8px;
-    }
-
-
-
-    /* カード内の説明文の文字サイズ */
-
-    .card p {
-        font-size: 0.75rem;      /* 文字を小さくして情報量を確保 */
-        line-height: 1.5;
-        margin: 0;
-    }
-
-    /* 3枚目のサイズも1・2枚目と全く同じにする */
-
-    .card:last-child {
-        width: calc(50% - 10px);
-        margin-top: 0;
-    }
-
-    /* お問い合わせページのヘッダー（タイトル周り）の調整 */
-
-    .contact-page {
-        padding: 40px 5% !important; /* 上下の余白を詰める */
-    }
-
-    .contact-header h1 {
-        font-size: 1.4rem !important; /* 文字を少し小さく */
-        white-space: nowrap;          /* 絶対に改行させない魔法 */
-    }
-
-    .contact-header h1::before, .contact-header h1::after {
-        width: 20px !important;       /* 横線をかなり短くしてタイトルを主役に */
-        margin: 0 10px !important;
-    }
-
-    .contact-header p {
-        font-size: 0.85rem;           /* 説明文も少し小さくしてバランスを取る */
-        line-height: 1.6;
-        padding: 0 10px;
-    }
-
-    /* お問い合わせページのロゴ周りをコンパクトに */
-
-    .contact-page header {
-        padding: 10px !important;
-    }
-
-    .contact-page .logo {
-        font-size: 1.2rem !important;
-    }
-
-    .br-sp { display: block; } /* スマホの画面幅になったら、改行を有効にする */
-
-    /* 各セクションのタイトルの文字サイズを調整 */
-
-    .section h2 {
-        font-size: 1.5rem;    /* 2remくらいだったものを1.5まで小さくします */
-        white-space: nowrap;  /* 絶対に改行させないという強い意志 */
-        letter-spacing: -0.5px; /* 文字の間隔をほんの少しだけ詰めて収まりを良くします */
-    }
-
-    /* ロゴ全体の調整 */
-
+    /* 2. ロゴ（絶対シャンパンゴールド＆サイズ） */
     .logo {
-        font-size: 1.1rem !important; /* 文字を少し小さくして収まりを良くします */
-        white-space: nowrap;         /* 絶対に改行させないという魔法の指示 */
-        gap: 8px;                    /* ロゴマークとの隙間も少しだけ詰めます */
-        letter-spacing: -0.5px;      /* 文字の間隔をわずかに詰めるとさらに綺麗です */
+        font-size: 1.1rem !important;
+        white-space: nowrap;
+        gap: 8px;
+        letter-spacing: -0.5px;
+        color: #bfa67a !important;
     }
-
-    /* ロゴマークのサイズも文字に合わせて微調整 */
-
     .logo-mark {
         height: 1.1em;
     }
 
-    /* --- 私たちの想い セクションの調整 --- */
-    /* 1. パソコンではスマホ用の改行を無効にする */
-
-    .mobile-br {
-        display: none;
+    /* 3. ヒーロー・セクション全体 */
+    .hero { height: 60vh; }
+    .hero h1 { font-size: 1.5rem; }
+    .hero p { font-size: 1rem; }
+    .section { padding: 40px 5%; }
+    .section h2 {
+        font-size: 1.5rem;
+        white-space: nowrap;
+        letter-spacing: -0.5px;
+        color: #bfa67a;
     }
 
-    /* 2. スマホ（画面幅768px以下）の時の設定 */
-
-    @media (max-width: 768px) {
-        /* 改行を有効にする */
-        .mobile-br {
-            display: block;
-        }
-
-        /* 文章の見た目を整える（スマホ版） */
-
-        .concept-text {
-            white-space: nowrap; /* スマホで「す。」が落ちない魔法は残しておきます */
-            font-size: 3.8vw;    /* スマホでの完璧なサイズ設定 */
-            line-height: 2.2;
-        }
-
-        .service-title {
-            white-space: nowrap;    /* これで「作成・見直し」が勝手に改行されるのを防ぎます */
-            line-height: 1.5;       /* 2行になった時の行間をきれいに整えます */
-            font-size: 1.15rem;     /* 文字サイズはお好みで微調整してください */
-            margin-bottom: 10px;
-            display: block;         /* 念のためブロック要素として扱います */
-        }
-
-        /* もし上に書いていなければこれも必要です */
-
-        .mobile-br {
-            display: block;         /* スマホの時だけ改行を有効にする */
-        }
-
-        .access-address {
-            text-align: center;     /* 中央寄せ */
-            line-height: 1.8;       /* 行間を読みやすく調整 */
-            white-space: nowrap;    /* 各行が勝手に途中で割れるのを防ぐ魔法 */
-            /* 画面の横幅に合わせて、文字サイズを自動で微調整します */
-            font-size: 3.4vw;       /* 3.4vw は「画面幅の3.4%」という意味です */
-            margin-top: 15px;
-            padding: 0 10px;
-        }
+    /* 4. 【決定版】サービスカード 2×2 配置 */
+    .cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 左右50%ずつ */
+        gap: 12px !important;
+        padding: 0 15px 20px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
     }
+    .card {
+    /* これがPC版の 240px 指定を無効化する魔法 */
+    min-width: 0 !important; 
+    
+    /* これが「1列にするか2列にするか」の決め手 */
+    width: 100% !important; /* グリッド（Grid）を使っている場合は 100% でOK */
+    
+    /* 以下、なっちゃんの今の設定 */
+    padding: 15px 10px;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0 !important;
+}
+
+    /* カード内のタイトル（なっちゃん設定：0.95rem） */
+    .card h3, .card .service-title {
+        font-size: 0.95rem !important;
+        margin-bottom: 8px !important;
+        line-height: 1.4 !important;
+        color: #bfa67a !important;
+        font-weight: bold;
+        white-space: nowrap; /* 作成・見直しを1行に */
+    }
+
+    /* カード内の説明文（なっちゃん設定：0.75rem） */
+    .card p {
+        font-size: 0.75rem !important;
+        line-height: 1.5 !important;
+        margin: 0 !important;
+        color: #666 !important;
+    }
+
+    /* 5. 私たちの想い（なっちゃん設定：3.8vw） */
+    .concept-text {
+        white-space: nowrap;
+        font-size: 3.8vw;
+        line-height: 2.2;
+        text-align: center;
+    }
+
+    /* 6. アクセス（なっちゃん設定：3.4vw） */
+    .access-address {
+        text-align: center;
+        line-height: 1.8;
+        white-space: nowrap;
+        font-size: 3.4vw;
+        margin-top: 15px;
+        padding: 0 10px;
+    }
+
+    /* 7. お問い合わせ（絶対改行させない） */
+    .contact-header h1 {
+        font-size: 1.4rem !important;
+        white-space: nowrap !important;
+    }
+    .contact-header h1::before, .contact-header h1::after {
+        width: 20px !important;
+    }
+
+    /* 8. その他調整 */
+    .map-container iframe { height: 200px; }
+    .mobile-br { display: block !important; }
+    .br-sp { display: block !important; }
 }
